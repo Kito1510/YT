@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const API_KEY = 'YOUR_YOUTUBE_API_KEY'; // Renderにデプロイする際は環境変数として設定してください
+const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY; // Renderにデプロイする際は環境変数として設定してください
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
