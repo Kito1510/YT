@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY; // Renderにデプロイする際は環境変数として設定してください
-
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
   const [videos, setVideos] = useState([]);
@@ -11,7 +9,7 @@ function App() {
     e.preventDefault();
     try {
       const response = await fetch(
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${searchTerm}&type=video&key=${API_KEY}`
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&q=${searchTerm}&type=video&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
       );
       const data = await response.json();
       setVideos(data.items);
